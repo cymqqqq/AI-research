@@ -4,6 +4,7 @@ Designing an efficient model within the limited computational cost is challengin
 paper https://arxiv.org/pdf/2007.00992.pdf
 # using your custom model
 # To use ReXNet on a GPU:
+'''
 import torch
 import rexnetv1
 
@@ -11,7 +12,9 @@ model = rexnetv1.ReXNetV1(width_mult=1.0).cuda()
 model.load_state_dict(torch.load('./model.0.pth'))
 model.eval()
 print(model(torch.randn(1, 3, 224, 224).cuda()))
+'''
 # To use ReXNet-lite on a CPU:
+'''
 import torch
 import rexnetv1_lite
 
@@ -19,3 +22,4 @@ model = rexnetv1_lite.ReXNetV1_lite(multiplier=1.0)
 model.load_state_dict(torch.load('./model_lite0.pth', map_location=torch.device('cpu')))
 model.eval()
 print(model(torch.randn(1, 3, 224, 224)))
+'''
